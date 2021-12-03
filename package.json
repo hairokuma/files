@@ -1,7 +1,7 @@
 {
   "name": "files",
   "main": "./lib/files",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [
   ],

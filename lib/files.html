@@ -47,3 +47,84 @@
 </body>
 
 </html>
+<h2 id="rpi_install">rpi_install</h2>
+<p>imager settings ctrl-shift-x</p>
+<h3 id="install-webmin10000-nextcloud80443-motioneye8765">install Webmin:10000, Nextcloud:80/443, MotionEye:8765</h3>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">curl <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://raw.githubusercontent.com/hairokuma/setup/main/Rpi/install/nextcloud.sh</span> | sudo bash</span></span></pre>
+<h3 id="install-pimcore5805443">install pimcore:580/5443</h3>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">curl <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://raw.githubusercontent.com/hairokuma/setup/main/Rpi/install/php8.sh</span> | sudo bash</span></span></pre>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">curl <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://raw.githubusercontent.com/hairokuma/setup/main/Rpi/install/pimcore.sh</span> | sudo bash</span></span></pre>
+<p>need to disable old php …</p>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo a2dismod php5.6</span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo a2enmod php8.0</span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo service apache2 restart</span></span></pre>
+<!-- mysql -u username -p new_database < data-dump.sql
+mysql -u pimcore -p pimcore < -->
+<h4 id="rpi3-increse-swapsice">rpi3 increse swapsice</h4>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo nano /etc/dphys-swapfile</span></span></pre>
+<p>CONF_SWAPSIZE=2048</p>
+<h3 id="install-pihole680">install pihole:680</h3>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">curl <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://raw.githubusercontent.com/hairokuma/setup/main/Rpi/install/pihole.sh</span> | sudo bash</span></span></pre>
+<h3 id="remotedesktop">RemoteDesktop</h3>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo apt-get install xrdp</span></span></pre>
+<h3 id="ncp-automount">ncp automount</h3>
+<p>https://${server}:4443/?app=nc-automount</p>
+<h2 id="hdd-spindown">HDD Spindown</h2>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo apt-get update</span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo apt-get install gnome-disk-utility</span></span></pre>
+<h2 id="pishrink-backup">piShrink Backup</h2>
+<p>https://github.com/RichardMidnight/pi-safe</p>
+<h2 id="pivpn">pivpn</h2>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">curl -L <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://install.pivpn.io</span> | bash</span></span></pre>
+<p>pivpn add</p>
+<h2 id="update-nextcloud">update nextcloud</h2>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo -u www-data php /var/www/nextcloud/occ maintenance:mode --on</span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo -u www-data php /var/www/nextcloud/occ upgrade</span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo -u www-data php /var/www/nextcloud/occ maintenance:mode --off</span></span></pre>
+<h2 id="argonone-script">ArgonOne script</h2>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">curl <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://download.argon40.com/argon1.sh</span> | bash</span></span></pre>
+<h2 id="youtube-dl">youtube-dl</h2>
+<h3 id="install-ytdl">install YtDl</h3>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo curl -L <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://yt-dl.org/downloads/latest/youtube-dl</span> -o /usr/local/bin/youtube-dl</span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sudo chmod a+rx /usr/local/bin/youtube-dl</span></span></pre>
+<h3 id="download-mp3-playlist">Download MP3 playlist</h3>
+<!-- youtube-dl --yes-playlist --extract-audio --audio-format mp3 -o "/media/Toshiba/Musik/YouTube/new/%(uploader)s/%(title)s.%(ext)s" PLrOXVI-TcUP0594Ktjp56cZgEMVcBzO6R https://www.youtube.com/watch?v=PLPxV6LLENM&list=PLrOXVI-TcUP0594Ktjp56cZgEMVcBzO6R -->
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">youtube-dl --yes-playlist --playlist-start 0 --extract-audio --audio-format mp3 -o "/media/Toshiba/Musik/YouTube/%(uploader)s/%(title)s.%(ext)s"</span></span></pre>
+<pre class="editor-colors lang-text" style="tab-size: 2;"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">youtube-dl -o "/media/Toshiba/Musik/YouTube/%(title)s.%(ext)s" <span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://www.youtube.com/watch?v=npp_zOrau0w</span></span></span></pre>
+<h3 id="retropie">Retropie</h3>
+<p>skyscraper usbmount autostart ppsspp redream drastic dosbox (dolphin) (pcsx2) lr-mupen64plus</p>
+<h3 id="nas-nextcloud-data-transfer-speed">NAS/ Nextcloud data transfer speed</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Methode x Type</th>
+<th>USB</th>
+<th>SMB-Local</th>
+<th>SMB-Local (pi3)</th>
+<th>SMB-VPN</th>
+<th>WEB-Network</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Down in MB/s</td>
+<td>178</td>
+<td>54</td>
+<td>15</td>
+<td>1.6</td>
+<td>3.6</td>
+</tr>
+<tr class="even">
+<td>Up in MB/s</td>
+<td>100</td>
+<td>21.8</td>
+<td>x</td>
+<td>0.6</td>
+<td>1.1</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Speedtest.png" title="Speedtest"></p>
+<!-- ### new
+remote vpn dns ftp
+local ftp smb (ntfs/fat23test) -->
