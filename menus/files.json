@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    ".files-pane": [
+      {
+        "label": "Toggle files",
+        "command": "files:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "files",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "files:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "atom-workspace": {
+    "ctrl-alt-x": "files:debug",
+    "ctrl-alt-y": "files:toggleModal"
+  },
+  "atom-text-editor": {
+    "ctrl-shift-H": "files:preview"
+  },
+  ".files-pane": {
+    "right": "files:next",
+    "left": "files:previous",
+    "space": "files:togglePlay",
+    "escape":"files:toggleFullscreen",
+    "f":"files:toggleFullscreen"
+  }
+}

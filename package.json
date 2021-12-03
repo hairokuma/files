@@ -1,0 +1,22 @@
+{
+  "name": "files",
+  "main": "./lib/files",
+  "version": "0.0.1",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "repository": "https://github.com/hairokuma/files",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  },
+  "deserializers": {
+    "FilesView": "deserializeFilesView",
+    "Preview":"deserializePreview"
+  },
+  "files": [
+    "/styles"
+  ]
+}

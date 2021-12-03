@@ -1,0 +1,424 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+@import "./fontawesome-pro/less/fontawesome";
+@import "./fontawesome-pro/less/solid";
+@import "./fontawesome-pro/less/regular";
+@import "./fontawesome-pro/less/light";
+@import "./fontawesome-pro/less/brands";
+@angle-png: "atom://files/images/angle.png";
+@volume-up-png: "atom://files/images/volume-up-solid.png";
+@volume-mute-png: "atom://files/images/volume-mute-solid.png";
+@step-forward-png: "atom://files/images/step-forward-solid.png";
+@play-png: "atom://files/images/play-solid.png";
+@pause-png: "atom://files/images/pause-solid.png";
+@expand-png: "atom://files/images/expand-solid.png";
+@compress-png: "atom://files/images/compress-solid.png";
+
+[data-type$="Preview"] {
+  .title:before {
+    content: "\f1c9";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+  }
+}
+
+.preview {
+  // overflow: auto;
+  embed,
+  iframe {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.tree-view {
+  [data-name$=".mp3"]:before {
+    content: "\f1c7";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+  }
+
+  [data-name$=".mp4"]:before {
+    content: "\f1c8";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+  }
+}
+
+[data-type$="FilesView"] {
+  .title {
+    &[data-name$=".bmp"]:before,
+    &[data-name$=".BMP"]:before,
+    &[data-name$=".gif"]:before,
+    &[data-name$=".GIF"]:before,
+    &[data-name$=".png"]:before,
+    &[data-name$=".PNG"]:before,
+    &[data-name$=".JPG"]:before,
+    &[data-name$=".jpg"]:before,
+    &[data-name$=".jpeg"]:before,
+    &[data-name$=".JPEG"]:before,
+    &[data-name$=".webp"]:before,
+    &[data-name$=".WEBP"]:before {
+      content: "\f03e";
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 300;
+    }
+
+    &[data-name$=".MP3"]:before,
+    &[data-name$=".mp3"]:before {
+      content: "\f028";
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 300;
+    }
+
+    &[data-name$=".MP4"]:before,
+    &[data-name$=".mp4"]:before {
+      content: "\f008";
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 300;
+    }
+  }
+}
+
+files.opener {
+  .file-list {
+    pointer-events: none;
+
+    .file-list-item {
+      pointer-events: auto;
+    }
+  }
+
+  .menu i {
+    font-size: 2em;
+    padding: 5px;
+    border: solid;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 1.35em;
+    border-radius: 12px;
+  }
+
+  .icon::after {
+    font-family: 'Octicons Regular';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    padding: 5px;
+  }
+
+  .file-list {
+    height: 80vh;
+    overflow: auto;
+    border: 1px solid #181a1f;
+  }
+
+  .file-list-item {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #181a1f;
+  }
+
+  .file-list-item.selected {
+    background-color: #3a3f4b;
+  }
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  background-color: #21252b;
+  user-select: none;
+
+  &.fs {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    max-width: 100%;
+    margin: auto;
+    max-height: 100%;
+    background-color: #000;
+  }
+
+  .prog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #0f82e6;
+    transition: width 0.1s linear;
+  }
+
+  &.transition {
+    .button-next,
+    .button-previous {
+      transition: 0.5s;
+    }
+  }
+
+  &.image,
+  &.video {
+    .button-next,
+    .button-previous {
+      position: absolute;
+      top: 20%;
+      bottom: 20%;
+      width: 20%;
+      opacity: 0;
+
+      &::after {
+        content: '';
+        background-image: url(@angle-png);
+        width: 47px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        background-repeat: no-repeat;
+        background-size: 47px 100px;
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.0);
+        opacity: 1;
+      }
+    }
+
+    .button-next {
+      right: 0;
+
+      &::after {
+        right: 25px;
+      }
+
+      &:hover {
+        background: -webkit-radial-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0));
+      }
+    }
+
+    .button-previous {
+      left: 0;
+
+      &:hover {
+        background: -webkit-radial-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0));
+      }
+
+      &::after {
+        transform: rotate(180deg);
+        left: 25px;
+      }
+    }
+  }
+
+  &.image {
+    .button-fullscreen {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      background-image: url(@expand-png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+
+      .muted {
+        background-image: url(@compress-png);
+      }
+    }
+  }
+
+  &.image > .content {
+    flex: 1 1 0;
+    display: flex;
+    overflow: auto;
+
+    img {
+      flex: 1 1 0;
+      min-width: 0;
+      margin: 0;
+      object-fit: scale-down;
+    }
+  }
+
+  &.music > .content {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.music {
+    flex: 1 1 0;
+    overflow: auto;
+    // background: #ddd;
+    // text-align: center;
+    // padding-bottom: 10px;
+    // > audio {
+    //   flex: 1 1 0;
+    //   min-width: 0;
+    //   margin: 0;
+    //   object-fit: scale-down;
+    // }
+    .button-next,
+    .button-previous {
+      position: absolute;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      left: calc(~'50% - 114px');
+      border: 1px solid #181a1f;
+      background-color: #4d78cc;
+      border-radius: 50%;
+      cursor: pointer;
+      background-image: url(@step-forward-png);
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+
+      &:hover {
+        background-color: #5981d0;
+      }
+    }
+
+    .button-previous {
+      transform: rotate(180deg);
+    }
+
+    .button-next {
+      left: calc(~'50% + 64px');
+    }
+
+    .togglePlay {
+      margin: 10px auto 0;
+      width: 64px;
+      height: 64px;
+      border: 1px solid #181a1f;
+      background-color: #4d78cc;
+      border-radius: 50%;
+      cursor: pointer;
+      background-image: url(@play-png);
+      background-size: 23px 34px;
+      background-repeat: no-repeat;
+      background-position: calc(~'50% + 2px') 50%;
+
+      &:hover {
+        background-color: #5981d0;
+      }
+
+      &.active {
+        background-image: url(@pause-png);
+        background-position: center;
+      }
+    }
+
+    .playlist {
+      // color: #fff;
+      white-space: nowrap;
+      overflow: auto;
+      top: 100px;
+      position: absolute;
+      padding: 10px;
+      right: 0;
+      left: 0;
+      bottom: 0;
+
+      .active {
+        background-color: #4d78cc;
+        color: #fff;
+      }
+    }
+
+    .volume-control {
+      display: flex;
+      width: 200px;
+      margin: auto;
+
+      .volume {
+        height: 4px;
+        margin: 10px 0 10px 20px;
+      }
+
+      .mute {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        background-image: url(@volume-up-png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50%;
+
+        &.muted {
+          background-image: url(@volume-mute-png);
+        }
+      }
+    }
+  }
+
+  &.x {
+    .button-fullscreen {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      background-image: url(@expand-png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+
+      .muted {
+        background-image: url(@compress-png);
+      }
+    }
+  }
+
+  &.video > .content {
+    flex: 1 1 0;
+    display: flex;
+    overflow: auto;
+
+    > video {
+      flex: 1 1 0;
+      min-width: 0;
+      margin: 0;
+      object-fit: scale-down;
+    }
+    // > video::-webkit-media-controls-fullscreen-button {
+    //   display: none !important;
+    // }
+  }
+
+  &.embed {
+    .content {
+      height: 100%;
+
+      embed {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
