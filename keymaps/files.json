@@ -1,7 +1,10 @@
 {
   "atom-workspace": {
     "ctrl-alt-x": "files:debug",
-    "ctrl-alt-y": "files:toggleModal"
+    "ctrl-alt-y": "files:toggleModal",
+    "mediatracknext": "files:next",
+    "mediatrackprevious": "files:previous",
+    "mediaplaypause": "files:togglePlay"
   },
   "atom-text-editor": {
     "ctrl-shift-H": "files:preview"
