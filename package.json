@@ -1,8 +1,8 @@
 {
   "name": "files",
   "main": "./lib/files",
-  "version": "0.0.3",
-  "description": "A short description of your package",
+  "version": "0.0.4",
+  "description": "View Mediafiles in Atom-Pane",
   "keywords": [
   ],
   "repository": "https://github.com/hairokuma/files",
