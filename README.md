@@ -20,6 +20,8 @@ Use arrow keys to see the next/previous item, Space to Play/Pause and f/esc to t
 <!--
 ### TODO
 
+apm publish
+
 config:
 
 open file from same folder in active item

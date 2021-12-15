@@ -135,7 +135,7 @@ files.opener {
 .files {
   display: flex;
   flex-direction: column;
-  background-color: #21252b;
+  background-color: @syntax-background-color;
   user-select: none;
 
   &.fs {
@@ -168,7 +168,8 @@ files.opener {
     width: 0;
     height: 3px;
     background: #0f82e6;
-    transition: width 0.1s linear;
+    // transform: translateZ(0);
+    // transition: width 0.1s linear;
   }
 
   &.transition {
