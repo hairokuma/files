@@ -3,18 +3,16 @@
   "main": "./lib/files",
   "version": "0.0.4",
   "description": "View Mediafiles in Atom-Pane",
-  "keywords": [
-  ],
+  "keywords": [],
   "repository": "https://github.com/hairokuma/files",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "deserializers": {
     "FilesView": "deserializeFilesView",
-    "Preview":"deserializePreview"
+    "Preview": "deserializePreview"
   },
   "files": [
     "/styles"
